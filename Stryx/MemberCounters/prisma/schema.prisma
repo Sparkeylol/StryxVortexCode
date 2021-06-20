@@ -1,0 +1,151 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model accounts {
+  id                   Int       @id @default(autoincrement())
+  compound_id          String    @unique
+  user_id              Int
+  provider_type        String
+  provider_id          String
+  provider_account_id  String
+  refresh_token        String?
+  access_token         String?
+  access_token_expires DateTime?
+  created_at           DateTime  @default(now())
+  updated_at           DateTime  @default(now())
+
+  @@index([provider_account_id], name: "providerAccountId")
+  @@index([provider_id], name: "providerId")
+  @@index([user_id], name: "userId")
+}
+
+model sessions {
+  id            Int      @id @default(autoincrement())
+  user_id       Int
+  expires       DateTime
+  session_token String   @unique
+  access_token  String   @unique
+  created_at    DateTime @default(now())
+  updated_at    DateTime @default(now())
+}
+
+model users {
+  id             Int       @id @default(autoincrement())
+  name           String?
+  email          String?   @unique
+  email_verified DateTime?
+  image          String?
+  created_at     DateTime  @default(now())
+  updated_at     DateTime  @default(now())
+}
+
+model verification_requests {
+  id         Int      @id @default(autoincrement())
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}
+
+model customer_data {
+  id                 Int       @id @default(autoincrement())
+  user_id            String
+  paymentType        String?
+  expiresAt          DateTime?
+  stripe_customer_id String?
+}
+
+model tokens {
+  id     Int    @id @default(autoincrement())
+  code   String @unique
+  type   String
+  months Int
+}
+
+model guilds {
+  id       Int     @id @default(autoincrement())
+  guildId  String  @unique
+  botOwner String
+  settings Json
+  botToken String  @unique
+  branding Boolean @default(true)
+  region   String  @default("LOCAL")
+}
+
+model logs {
+  id      Int      @id @default(autoincrement())
+  guildId String
+  userId  String
+  text    String
+  date    DateTime
+}
+
+model workspace {
+  id            Int      @id @default(autoincrement())
+  workspaceId   String   @unique
+  workspaceName String
+  members       String[]
+  plan_type     Int      @default(1)
+  expiresAt     DateTime @default(now())
+}
+
+model economy {
+  id      Int    @id @default(autoincrement())
+  guildId String
+  userId  String
+  cash    Int
+  bank    Int
+}
+
+model cases {
+  id        Int      @id @default(autoincrement())
+  caseId    Int
+  date      DateTime
+  moderator String
+  offender  String
+  type      String
+  reason    String
+}
+
+model tickets {
+  id       Int      @id @default(autoincrement())
+  ticketId Int      @default(autoincrement())
+  guildId  String
+  userId   String
+  reason   String
+  staffIds String[]
+  status   String   @default("OPEN")
+  type     String   @default("ticket")
+  channel  String?
+}
+
+model blacklist {
+  id     Int    @id @default(autoincrement())
+  userId String
+}
+
+model linkedAccounts {
+  id            Int    @id @default(autoincrement())
+  robloxId      String
+  discordId     String
+  previousRoles Json[]
+}
+
+model memberCounters {
+  id         Int     @id @default(autoincrement())
+  ownerId    String
+  isEmbed    Boolean @default(false)
+  template   Json
+  goal       Int
+  current    Int
+  groupId    String
+  webhookUrl String
+  increment  Int
+}

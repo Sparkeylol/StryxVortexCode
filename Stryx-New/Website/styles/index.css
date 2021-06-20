@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#gradient-canvas {
+    --gradient-color-1: #3B82F6; 
+    --gradient-color-2: #2AB7CA; 
+    --gradient-color-3: #9372C0;  
+    --gradient-color-4: #E87461;
+    --gradient-color-5: #D73364;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}

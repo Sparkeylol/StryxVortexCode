@@ -1,0 +1,21 @@
+{
+  "name": "stryx",
+  "short_name": "stryx",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "./icons/icons-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./icons/icons-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

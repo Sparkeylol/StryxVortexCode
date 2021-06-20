@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "jsx": "preserve",
+    "jsxImportSource": "preact",
+    "noEmit": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "ESNext"
+    ]
+  },
+  "include": [
+    "./src/**/*.tsx",
+    "./src/**/*.ts",
+    "react-live-chat-loader.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

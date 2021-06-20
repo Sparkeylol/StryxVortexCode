@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.link {
+  @apply font-semibold text-indigo-500 cursor-pointer hover:underline;
+}
+
+
+#hero {
+  border-bottom-right-radius: 95% 95px;
+  border-bottom-left-radius: 95% 95px;
+}
+
+@media (min-width: 768px) {
+  #hero {
+    border-bottom-right-radius: 95%;
+    border-bottom-left-radius: 95%;
+  }
+}
+
+.feather {
+  @apply inline-block;
+}

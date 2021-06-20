@@ -1,0 +1,46 @@
+import { Command } from 'discord-akairo';
+import { MessageEmbed, Message } from 'discord.js';
+import got from 'got';
+import StryxClient from '../../src/client';
+
+class MemeCommand extends Command {
+  constructor() {
+    super('meme', {
+      aliases: ['meme', 'getmeme', 'randommeme'],
+      description: {
+        content: 'Get a random dog picture!',
+        ownerOnly: false,
+      },
+      category: 'fun',
+      cooldown: 10000,
+      ratelimit: 2,
+    });
+  }
+
+  async exec(msg: Message) {
+    const embed = new MessageEmbed();
+    const { guild } = this.client as StryxClient;
+
+    embed.setTitle('Fetching a random meme...');
+    embed.setColor(guild?.settings.constants.colors.warning as string);
+    const m = await msg.channel.send(embed);
+
+    const post: any = await got.get('https://www.reddit.com/r/memes/random.json').json();
+
+    const { permalink } = post[0].data.children[0].data;
+    const memeUrl = `https://reddit.com${permalink}`;
+    const memeImage = post[0].data.children[0].data.url;
+    const memeTitle = post[0].data.children[0].data.title;
+    const memeUpvotes = post[0].data.children[0].data.ups;
+    const memeDownvotes = post[0].data.children[0].data.downs;
+    const memeNumComments = post[0].data.children[0].data.num_comments;
+    embed.setTitle(`${memeTitle}`);
+    embed.setURL(`${memeUrl}`);
+    embed.setImage(memeImage);
+    embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}`);
+    embed.setColor(guild?.settings.constants.colors.default as string);
+    return m.edit(embed);
+  }
+}
+
+module.exports = MemeCommand;

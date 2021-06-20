@@ -1,0 +1,10 @@
+{
+  "docs": {
+    "Introduction": ["welcome"],
+    "Information": ["office-hours", "order-member-counter", "redeem-bot-code", "purchase-a-bot", "what-is-stryx", "how-stryx-can-help", "going-free", "getting-started"],
+    "Legal": ["legal/terms-of-service", "legal/privacy-policy"]
+  },
+  "api": {
+    "API Introduction": ["api/intro"]
+  }
+}

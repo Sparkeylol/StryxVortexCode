@@ -1,0 +1,26 @@
+{
+  "devDependencies": {
+    "@types/debug": "^4.1.5",
+    "@types/tough-cookie": "^4.0.0",
+    "prisma": "^2.19.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^2.19.0",
+    "@types/string-template": "^1.0.2",
+    "bloxy": "^5.7.3",
+    "discord-webhook-node": "^1.1.8",
+    "got": "^11.8.2",
+    "string-template": "^1.0.0",
+    "tslog": "^3.1.2"
+  },
+  "scripts": {
+    "dev": "ts-node index.ts",
+    "build": "tsc",
+    "start": "node ./dist/index.js"
+  },
+  "name": "membercounters",
+  "version": "1.0.0",
+  "description": "Stryx member counters",
+  "main": "index.js",
+  "license": "MPL-2.0"
+}
