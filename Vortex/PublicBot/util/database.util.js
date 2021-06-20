@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://vortex:hbFUT6c4jkr7Nj2MTU4CtYzudFYGH392@51.222.84.224/vortex", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify:false});
+mongoose.connect("", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify:false});
 
 const users = require('../models/Users.schema')
 const accounts = require('../models/Account.schema')

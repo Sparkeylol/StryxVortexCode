@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://root:NRUZmcraSzh52g6JNwJ3hFB7YNDV4Gxj@170.39.231.141:27017/vortex?authSource=admin", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify:false}, (err => {
+mongoose.connect("", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify:false}, (err => {
     console.error(err)
 }));
 

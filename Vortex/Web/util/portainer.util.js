@@ -1,11 +1,11 @@
 const axios = require("axios").default
 
-const uri = "http://170.39.231.141:9000"
+const uri = ""
 
 class Portainer {
     constructor() {
-        this.username = "website"
-        this.password = "Vh73SwB5yc2NN4rmhzwxa8k2U8DY2c5A"
+        this.username = ""
+        this.password = ""
         this.apikey = null
     }
 

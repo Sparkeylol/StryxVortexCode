@@ -1,6 +1,6 @@
 import axios, { Method } from 'axios';
 
-const uri = 'https://docker.stryx.cloud';
+const uri = '';
 
 class Portainer {
   username: string;
@@ -10,8 +10,8 @@ class Portainer {
   apikey: any;
 
   constructor() {
-    this.username = 'website';
-    this.password = 'Vh73SwB5yc2NN4rmhzwxa8k2U8DY2c5A';
+    this.username = '';
+    this.password = '';
     this.apikey = null;
   }
 
